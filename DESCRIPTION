@@ -6,7 +6,10 @@ Author: Justin Strate
 Maintainer: Justin Strate <justin.strate@gmail.com>
 Description: Simulates coin tosses or Bernoulli trials. Provides tools designed
     to analyze interesting properties around such trials.
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr
