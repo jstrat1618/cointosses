@@ -4,22 +4,13 @@
 \alias{toss}
 \title{Coin Toss}
 \usage{
-toss(n = 1, prob = 0.5, success = "H", failure = "T")
+toss(...)
 }
 \arguments{
-\item{n}{The number of times the coin is tossed}
-
-\item{prob}{The probability of "Success"; default is 0.5 to simulate a fair coin}
-
-\item{success}{Denotes "success"; default is "H"}
-
-\item{failure}{Denotes "failure"; default is "T"}
+\item{...}{additional parameters that may be supplied.}
 }
 \description{
-Simulates the tossing of a coin n times.
-}
-\details{
-Can also be thought of as simulating n bernoulli trials; not just coin tosses but any trial in which the outcome is binary.
+A generic gunction to simulate the tossing of a coin
 }
 \author{
 Justin Strate
