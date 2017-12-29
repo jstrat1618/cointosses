@@ -39,3 +39,51 @@ toss.default <- function(n = 1, prob = 0.5, success = 'H', failure = 'T', ...){
   return(out)
 }
 
+#' @title Toss An Autocorrelated Coin
+#' @description Creates an autocorrelated coin
+#' @author Justin Strate
+#' @param mycoin An Autocorrelated Coin
+#' @param n The number of times to toss the autocorrelated coin
+#' @export
+toss.autoCorrCoin <- function(mycoin, n){
+
+  p_given1 <- 0.5
+  p_given0 <- 0.5
+  initial_prob <- mycoin$initial_prob
+  success <- mycoin$success
+  failure <- mycoin$failure
+
+  trials <- factor(levels = c(success, failure))
+
+  for(iter in 1:n){
+
+    if(iter == 1){
+      draw_num <- stats::rbinom(1, size = 1, prob = initial_prob)
+      result <- ifelse(draw_num == 1, success, failure)
+
+      trials[iter] <- result
+    } else{
+
+      previous_result <- trials[iter - 1]
+
+      if(previous_result == success){
+        draw_num <- stats::rbinom(1, size = 1, prob = p_given1)
+        result <- ifelse(draw_num == 1, success, failure)
+
+        trials[iter] <- result
+
+      } else{
+        draw_num <- stats::rbinom(1, size = 1, prob = p_given0)
+        result <- ifelse(draw_num == 1, success, failure)
+
+        trials[iter] <- result
+      }
+
+    }
+
+  }
+
+  structure(list(success=success, failure=failure, initial_prob=initial_prob,
+                 p_given1=p_given1, p_given0=p_given0, trials=trials),
+            class='tossedAutoCorrCoin')
+}
