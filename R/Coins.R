@@ -12,8 +12,16 @@ coin <- function(success = 'H', failure = 'T', prob = 0.5){
   structure(list(success=success, failure=failure, prob=prob), class='coin')
 }
 
-
-autoCorrCoin <- function(initial_prob = 0.5, success = 'H', failure = 'T', p_given1 = 0.5,
+#' @title Create An Autocorrelated Coin
+#' @description Creates an autocorrelated coin
+#' @author Justin Strate
+#' @param success Denotes "success" in the Bernoulli Trial. Default is "H".
+#' @param failure Denotes "failure" in the Bernoulli Trial. Default is "F".
+#' @param initial_prob The initial probability of "success". Must be numeric and be between 0 and 1. Default is 0.5.
+#' @param p_given1 The probability of "success" given the previous trial was a "success". Must be numeric and be between 0 and 1. Default is 0.5.
+#' @param p_given0 The probability of "success" given the previous trial was a "failure". Must be numeric and be between 0 and 1. Default is 0.5.
+#' @export
+autoCorrCoin <- function(success = 'H', failure = 'T', initial_prob = 0.5, p_given1 = 0.5,
                        p_given0 = 0.5 ){
 
   probs <- c(initial_prob, p_given1, p_given0)
@@ -22,8 +30,8 @@ autoCorrCoin <- function(initial_prob = 0.5, success = 'H', failure = 'T', p_giv
   rngChck <- all(probs >= 0 & probs <= 1)
   if(!rngChck)stop("All probabilities should be between 0 and 1")
 
-  structure(list(initial_prob, success=success, failure=failure,
-                 p_given1, p_given0), class='autoCorrCoin')
 
+  structure(list(success=success, failure=failure, initial_prob=initial_prob,
+                 p_given1=p_given1, p_given0=p_given0), class='autoCorrCoin')
 
 }
