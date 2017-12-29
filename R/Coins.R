@@ -13,9 +13,17 @@ coin <- function(success = 'H', failure = 'T', prob = 0.5){
 }
 
 
-#autoCorrCoin <- (initial_prob = 0.5, success = 'H', failure = 'T', p_given1 = 0.5,
-#                       p_given0 = 0.5 ){
+autoCorrCoin <- function(initial_prob = 0.5, success = 'H', failure = 'T', p_given1 = 0.5,
+                       p_given0 = 0.5 ){
+
+  probs <- c(initial_prob, p_given1, p_given0)
+  if(!is.numeric(probs))stop("All probabilities should be numeric")
+
+  rngChck <- all(probs >= 0 & probs <= 1)
+  if(!rngChck)stop("All probabilities should be between 0 and 1")
+
+  structure(list(initial_prob, success=success, failure=failure,
+                 p_given1, p_given0), class='autoCorrCoin')
 
 
-
-#}
+}
