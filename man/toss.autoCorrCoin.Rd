@@ -4,12 +4,14 @@
 \alias{toss.autoCorrCoin}
 \title{Toss An Autocorrelated Coin}
 \usage{
-\method{toss}{autoCorrCoin}(mycoin, n)
+\method{toss}{autoCorrCoin}(mycoin, n, ...)
 }
 \arguments{
 \item{mycoin}{An Autocorrelated Coin}
 
 \item{n}{The number of times to toss the autocorrelated coin}
+
+\item{...}{additional parameters that may be supplied.}
 }
 \description{
 Creates an autocorrelated coin

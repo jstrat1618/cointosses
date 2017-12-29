@@ -44,8 +44,9 @@ toss.default <- function(n = 1, prob = 0.5, success = 'H', failure = 'T', ...){
 #' @author Justin Strate
 #' @param mycoin An Autocorrelated Coin
 #' @param n The number of times to toss the autocorrelated coin
+#' @param ... additional parameters that may be supplied.
 #' @export
-toss.autoCorrCoin <- function(mycoin, n){
+toss.autoCorrCoin <- function(mycoin, n, ...){
 
   p_given1 <- 0.5
   p_given0 <- 0.5
