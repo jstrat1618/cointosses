@@ -13,7 +13,7 @@ coin <- function(success = 'H', failure = 'T', prob = 0.5){
 }
 
 
-#autocorrelatedCoin <- (initial_prob = 0.5, success = 'H', failure = 'T', p_given1 = 0.5,
+#autoCorrCoin <- (initial_prob = 0.5, success = 'H', failure = 'T', p_given1 = 0.5,
 #                       p_given0 = 0.5 ){
 
 

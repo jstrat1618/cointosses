@@ -19,9 +19,8 @@ streaks <- function(...){
 #' @export
 streaks.default <- function(x, ...){
 
-
   count <- 1
-  run <- numeric()
+  runs <- numeric()
 
   for(iter in 2:length(x)){
     previous_item <- x[iter-1]
@@ -29,17 +28,19 @@ streaks.default <- function(x, ...){
 
     if(previous_item == current_item){
       count <- count + 1
-    } else{
-      run <- c(run, count)
+    } else if(count != 1){
+      runs <- c(runs, count)
       count <- 1
     }
     if(iter == length(x) & count != 1){
-      run <- c(run, count)
+      runs <- c(runs, count)
     }
 
   }
 
-  run
+  runs
 
 }
+
+
 
