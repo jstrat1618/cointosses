@@ -8,7 +8,58 @@ streaks <- function(...){
   UseMethod("streaks")
 }
 
-#streaks.tossedCoin <- function(mycoin, ...)
+streaks.tossedCoin <- function(mycoin, ...){
+  trials <- mycoin$trials
+  success <- mycoin$success
+  failure <- mycoin$failure
+
+  streaksSucces <- numeric()
+  streaksFailure <- numeric()
+  runs <- numeric()
+
+  count <- 1
+
+  for(iter in 2:length(x)){
+    previous_item <- x[iter-1]
+    current_item <- x[iter]
+
+    if(previous_item == current_item){
+      count <- count + 1
+    } else if(count != 1){
+
+
+      runs <- c(runs, count)
+
+      if(previous_item == success){
+          streaksSucces <- c(streaksSucces, runs)
+      } else{
+        streaksFailure <- c(streaksFailure, runs)
+
+      }
+
+      count <- 1
+    }
+    if(iter == length(x) & count != 1){
+      runs <- c(runs, count)
+
+      if(previous_item == success){
+        streaksSucces <- c(streaksSucces, runs)
+      } else{
+        streaksFailure <- c(streaksFailure, runs)
+
+      }
+
+    }
+
+  }
+
+  structure(list(success=success,
+                 streaksSucces=streaksSucces,
+                 failure=failure,
+                 streaksFailure=streaksFailure,
+                 runs=runs), class='coinStreaks')
+
+}
 
 #' @title streak
 #' @description counts streaks
