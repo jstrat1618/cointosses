@@ -8,12 +8,17 @@ streaks <- function(...){
   UseMethod("streaks")
 }
 
+#' @title streaks.tossedCoin
+#' @description coints the streaks for a coin that has been tossed
+#' @param mycoin a coin object
+#' @param ... Additional parameters that may be applied
+#' @export
+
 streaks.tossedCoin <- function(mycoin, ...){
-  trials <- mycoin$trials
+  trial <- mycoin$trial
   success <- mycoin$success
   failure <- mycoin$failure
 
-  x <- ifelse(trials == success, success, failure)
 
   streaksSucces <- numeric()
   streaksFailure <- numeric()
@@ -22,9 +27,9 @@ streaks.tossedCoin <- function(mycoin, ...){
   count <- 1
 
 
-  for(iter in 2:length(x)){
-    previous_item <- x[iter-1]
-    current_item <- x[iter]
+  for(iter in 2:length(trial)){
+    previous_item <- trial[iter-1]
+    current_item <- trial[iter]
 
     if(previous_item == current_item){
       count <- count + 1
@@ -42,7 +47,7 @@ streaks.tossedCoin <- function(mycoin, ...){
 
       count <- 1
     }
-    if(iter == length(x) & count != 1){
+    if(iter == length(trial) & count != 1){
       runs <- c(runs, count)
 
       if(previous_item == success){
