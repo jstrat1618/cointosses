@@ -13,11 +13,14 @@ streaks.tossedCoin <- function(mycoin, ...){
   success <- mycoin$success
   failure <- mycoin$failure
 
+  x <- ifelse(trials == success, success, failure)
+
   streaksSucces <- numeric()
   streaksFailure <- numeric()
   runs <- numeric()
 
   count <- 1
+
 
   for(iter in 2:length(x)){
     previous_item <- x[iter-1]
