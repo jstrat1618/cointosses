@@ -39,9 +39,9 @@ streaks.tossedCoin <- function(mycoin, ...){
       runs <- c(runs, count)
 
       if(previous_item == success){
-          streaksSucces <- c(streaksSucces, runs)
+          streaksSucces <- c(streaksSucces, count)
       } else{
-        streaksFailure <- c(streaksFailure, runs)
+        streaksFailure <- c(streaksFailure, count)
 
       }
 
@@ -51,9 +51,9 @@ streaks.tossedCoin <- function(mycoin, ...){
       runs <- c(runs, count)
 
       if(previous_item == success){
-        streaksSucces <- c(streaksSucces, runs)
+        streaksSucces <- c(streaksSucces, count)
       } else{
-        streaksFailure <- c(streaksFailure, runs)
+        streaksFailure <- c(streaksFailure, count)
 
       }
 
@@ -65,7 +65,8 @@ streaks.tossedCoin <- function(mycoin, ...){
                  streaksSucces=streaksSucces,
                  failure=failure,
                  streaksFailure=streaksFailure,
-                 runs=runs), class='coinStreaks')
+                 runs=runs,
+                 trial = trial), class='coinStreaks')
 
 }
 
