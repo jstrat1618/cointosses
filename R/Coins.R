@@ -12,6 +12,23 @@ coin <- function(success = 'H', failure = 'T', prob = 0.5){
   structure(list(success=success, failure=failure, prob=prob), class='coin')
 }
 
+
+#' @title print coin
+#' @author Justin Strate
+#' @param coin A coin object
+#' @export
+print.coin <- function(coin){
+
+   succ <- coin$success
+   fail <- coin$failure
+   prob <- coin$prob
+
+   mystring <- paste("A Bernoulli trial with success denoted by '", succ,
+                     "' failure denoted by '",
+                     fail,"', and probability of success ", prob,'.', sep = '')
+   print(mystring)
+}
+
 #' @title Create An Autocorrelated Coin
 #' @description Creates an autocorrelated coin
 #' @author Justin Strate
