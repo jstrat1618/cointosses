@@ -4,6 +4,10 @@ Title: Coin Toss Simulation
 Version: 0.0.0
 Author: Justin Strate
 Maintainer: Justin Strate <justin.strate@gmail.com>
+Depends:
+  R (>= 3.0.0)
+Suggests:
+  magrittr
 Description: Simulates coin tosses or Bernoulli trials. Provides tools designed
     to analyze interesting properties around such trials.
 License: MIT + file LICENSE
