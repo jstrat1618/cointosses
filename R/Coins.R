@@ -12,11 +12,15 @@ coin <- function(success = 'H', failure = 'T', prob = 0.5){
   structure(list(success=success, failure=failure, prob=prob), class='coin')
 }
 
+
+
 #' @title Print Coin
 #' @description prints a coin
 #' @author Justin Strate
 #' @param coin a coin object
+#' @param ... Other arguments that may be supplied
 #' @export
+#' @rdname
 print.coin <- function(coin, ...){
 
    succ <- coin$success

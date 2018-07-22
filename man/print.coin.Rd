@@ -8,6 +8,8 @@
 }
 \arguments{
 \item{coin}{a coin object}
+
+\item{...}{Other arguments that may be supplied}
 }
 \description{
 prints a coin
