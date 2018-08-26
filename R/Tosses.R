@@ -27,17 +27,23 @@ toss.coin <- function(mycoin,n, ...){
 #' @title Creating a Tossed Coing from a Vector
 #' @description Creates a tossed coin from either a characeter or factor vector of two levels
 #' @param vec a vector reprsenting the trial
+#' @param success denotes "success" in the trial
+#' @param failure denotes "failure" in the trial
+#' @param prob Represents the probability of "Success". Default is NULL
 #' @param ... other arguments that may be supplied
 #' @export
-tossed_coin <- function(vec, ...)UseMethod("tossed_coin")
+tossed_coin <- function(vec, success, failure, prob = NULL, ...)UseMethod("tossed_coin")
 
 
 #' @title Creating a Tossed Coing from a Vector
 #' @description Creates a tossed coin from either a characeter or factor vector of two levels
-#' @param vec a vector reprsenting the trial
+#' @param vec a character vector reprsenting the trial
+#' @param success denotes "success" in the trial
+#' @param failure denotes "failure" in the trial
+#' @param prob Represents the probability of "Success". Default is NULL
 #' @param ... other arguments that may be supplied
 #' @export
-tossed_coin.character <- function(vec, ...){
+tossed_coin.character <- function(vec, success, failure, prob =NULL, ...){
   unique_levels <- unique(vec)
   if(any(is.na(unique_levels)))warning("Please note some of the trials have missing values")
 
@@ -61,8 +67,6 @@ tossed_coin.character <- function(vec, ...){
     failure <- non_missing_levels[non_missing_levels != success]
 
   }
-
-  if(missing(prob)) prob <- NULL
 
   structure(list(success=success, failure=failure, prob=prob, trial=vec),
             class=c('tossedCoin', 'coin'))

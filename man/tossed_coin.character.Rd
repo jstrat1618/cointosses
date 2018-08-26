@@ -4,10 +4,16 @@
 \alias{tossed_coin.character}
 \title{Creating a Tossed Coing from a Vector}
 \usage{
-\method{tossed_coin}{character}(vec, ...)
+\method{tossed_coin}{character}(vec, success, failure, prob = NULL, ...)
 }
 \arguments{
-\item{vec}{a vector reprsenting the trial}
+\item{vec}{a character vector reprsenting the trial}
+
+\item{success}{denotes "success" in the trial}
+
+\item{failure}{denotes "failure" in the trial}
+
+\item{prob}{Represents the probability of "Success". Default is NULL}
 
 \item{...}{other arguments that may be supplied}
 }
