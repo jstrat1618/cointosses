@@ -23,6 +23,53 @@ toss.coin <- function(mycoin,n, ...){
             class=c('tossedCoin', 'coin'))
 }
 
+
+#' @title Creating a Tossed Coing from a Vector
+#' @description Creates a tossed coin from either a characeter or factor vector of two levels
+#' @param vec a vector reprsenting the trial
+#' @param ... other arguments that may be supplied
+#' @export
+tossed_coin <- function(vec, ...)UseMethod("tossed_coin")
+
+
+#' @title Creating a Tossed Coing from a Vector
+#' @description Creates a tossed coin from either a characeter or factor vector of two levels
+#' @param vec a vector reprsenting the trial
+#' @param ... other arguments that may be supplied
+#' @export
+tossed_coin.character <- function(vec, ...){
+  unique_levels <- unique(vec)
+  if(any(is.na(unique_levels)))warning("Please note some of the trials have missing values")
+
+  non_missing_levels <- unique_levels[!is.na(unique_levels)]
+  if(length(unique_levels)>2)stop('There are more than one two levels')
+
+  #define success and failure if they are both missing
+  if(missing(success) & missing(failure)){
+    success <- sort(non_missing_levels)[1]
+    failure <- sort(non_missing_levels)[2]
+  } else if(missing(success) & !missing(failure)){
+
+    #make sure failure is in the unique levels
+    if(!failure %in% non_missing_levels)warning("failure is not among the trials")
+    success <- non_missing_levels[non_missing_levels != failure]
+
+  }else if(!missing(success) & missing(failure)){
+
+    #make sure success is in the unique levels
+    if(!success %in% non_missing_levels)warning("success is not among the trials")
+    failure <- non_missing_levels[non_missing_levels != success]
+
+  }
+
+  if(missing(prob)) prob <- NULL
+
+  structure(list(success=success, failure=failure, prob=prob, trial=vec),
+            class=c('tossedCoin', 'coin'))
+
+}
+
+
 #' @title Coin Toss
 #' @description Simulates the tossing of a coin n times.
 #' @param n The number of times the coin is tossed
@@ -88,3 +135,4 @@ toss.autoCorrCoin <- function(mycoin, n, ...){
                  p_given1=p_given1, p_given0=p_given0, trials=trials),
             class='tossedAutoCorrCoin')
 }
+
