@@ -12,12 +12,10 @@ coin <- function(success = 'H', failure = 'T', prob = 0.5){
   structure(list(success=success, failure=failure, prob=prob), class='coin')
 }
 
-#' @title Print Coin
-#' @description prints a coin
-#' @author Justin Strate
-#' @param coin a coin object
+
+# Do not use any other variable other than x for consistency
 #' @export
-print.coin <- function(coin, ...){
+print.coin <- function(x, ...){
 
    succ <- coin$success
    fail <- coin$failure
@@ -28,6 +26,8 @@ print.coin <- function(coin, ...){
                      fail,"', and probability of success ", prob,'.', sep = '')
    print(mystring)
 }
+
+
 
 #' @title Create An Autocorrelated Coin
 #' @description Creates an autocorrelated coin
