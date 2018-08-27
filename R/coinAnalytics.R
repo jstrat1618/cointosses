@@ -102,5 +102,11 @@ streaks.default <- function(x, ...){
 
 }
 
+#' @export
+sum.tossedCoin <- function(x, ...){
 
+
+  sum(ifelse(x$trial == x$success, 1, 0))
+
+}
 
