@@ -17,7 +17,7 @@ coin <- function(success = 'H', failure = 'T', prob = 0.5){
 #' @title Print Coin
 #' @description prints a coin
 #' @author Justin Strate
-#' @param coin a coin object
+#' @param x the object to be printed
 #' @param ... Other arguments that may be supplied
 #' @export
 print.coin <- function(x, ...){

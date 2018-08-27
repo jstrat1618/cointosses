@@ -4,10 +4,10 @@
 \alias{print.coin}
 \title{Print Coin}
 \usage{
-\method{print}{coin}(coin, ...)
+\method{print}{coin}(x, ...)
 }
 \arguments{
-\item{coin}{a coin object}
+\item{x}{the object to be printed}
 
 \item{...}{Other arguments that may be supplied}
 }
