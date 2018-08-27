@@ -137,6 +137,6 @@ toss.autoCorrCoin <- function(mycoin, n, ...){
 
   structure(list(success=success, failure=failure, initial_prob=initial_prob,
                  p_given1=p_given1, p_given0=p_given0, trials=trials),
-            class='tossedAutoCorrCoin')
+            class=c('tossedAutoCorrCoin', 'tossedCoin'))
 }
 
