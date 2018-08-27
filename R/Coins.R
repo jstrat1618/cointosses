@@ -9,6 +9,7 @@
 coin <- function(success = 'H', failure = 'T', prob = 0.5){
   if(!is.numeric(prob))stop('prob must be numeric')
   if(prob <0 | prob >1)stop('prob must be between 0 and 1')
+
   structure(list(success=success, failure=failure, prob=prob), class='coin')
 }
 
@@ -21,9 +22,9 @@ coin <- function(success = 'H', failure = 'T', prob = 0.5){
 #' @param ... Other arguments that may be supplied
 #' @export
 print.coin <- function(x, ...){
-   succ <- coin$success
-   fail <- coin$failure
-   prob <- coin$prob
+   succ <- x$success
+   fail <- x$failure
+   prob <- x$prob
 
    mystring <- paste("A Bernoulli trial with success denoted by '", succ,
                      "' failure denoted by '",
@@ -84,7 +85,7 @@ tossed_coin.character <- function(vec, success, failure, prob =NULL, ...){
   if(any(is.na(unique_levels)))warning("Please note some of the trials have missing values")
 
   non_missing_levels <- unique_levels[!is.na(unique_levels)]
-  if(length(unique_levels)>2)stop('There are more than one two levels')
+  if(length(non_missing_levels )>2)stop('There are more than one two levels')
 
   #define success and failure if they are both missing
   if(missing(success) & missing(failure)){
