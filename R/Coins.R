@@ -13,10 +13,14 @@ coin <- function(success = 'H', failure = 'T', prob = 0.5){
 }
 
 
-# Do not use any other variable other than x for consistency
+
+#' @title Print Coin
+#' @description prints a coin
+#' @author Justin Strate
+#' @param coin a coin object
+#' @param ... Other arguments that may be supplied
 #' @export
 print.coin <- function(x, ...){
-
    succ <- coin$success
    fail <- coin$failure
    prob <- coin$prob
