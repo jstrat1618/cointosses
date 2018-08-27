@@ -110,3 +110,9 @@ sum.tossedCoin <- function(x, ...){
 
 }
 
+#' @export
+mean.tossedCoin <- function(x, ...){
+
+  mean(ifelse(x$trial == x$success, 1, 0))
+}
+
