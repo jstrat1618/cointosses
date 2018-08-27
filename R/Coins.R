@@ -33,6 +33,15 @@ print.coin <- function(x, ...){
 }
 
 
+#' @title Print Tossed Coin
+#' @description prints the trial of the tossed coin
+#' @param x the object to be printed
+#' @param  ... other arguments that may be supplied
+#' @export
+print.tossedCoin <- function(x, ...){
+  print(x$trial)
+}
+
 
 #' @title Create An Autocorrelated Coin
 #' @description Creates an autocorrelated coin
