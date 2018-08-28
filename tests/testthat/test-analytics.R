@@ -11,3 +11,15 @@ test_that("Testing streaks", {
 
   expect_equal(max(out$runs),6)
 })
+
+
+test_that("Testing summary statistics ", {
+  set.seed(2018)
+  x <- coin()
+  y <- toss(x, 10)
+
+
+  expect_equal(sum(y),3)
+  mean(y, 0.3)
+
+})
