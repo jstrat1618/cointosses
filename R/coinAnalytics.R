@@ -106,13 +106,13 @@ streaks.default <- function(x, ...){
 sum.tossedCoin <- function(x, ...){
 
 
-  sum(ifelse(x$trial == x$success, 1, 0))
+  sum(ifelse(x$trial == x$success, 1, 0), ...)
 
 }
 
 #' @export
 mean.tossedCoin <- function(x, ...){
 
-  mean(ifelse(x$trial == x$success, 1, 0))
+  mean(ifelse(x$trial == x$success, 1, 0), ...)
 }
 
