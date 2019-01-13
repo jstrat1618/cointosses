@@ -50,8 +50,8 @@ toss.default <- function(n = 1, prob = 0.5, success = 'H', failure = 'T', ...){
 #' @export
 toss.autoCorrCoin <- function(mycoin, n, ...){
 
-  p_given1 <- 0.5
-  p_given0 <- 0.5
+  p_given1 <- mycoin$p_given1
+  p_given0 <- mycoin$p_given0
   initial_prob <- mycoin$initial_prob
   success <- mycoin$success
   failure <- mycoin$failure
