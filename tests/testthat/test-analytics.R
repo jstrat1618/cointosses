@@ -14,12 +14,13 @@ test_that("Testing streaks", {
 
 
 test_that("Testing summary statistics ", {
-  set.seed(2018)
   x <- coin()
+  set.seed(2018)
   y <- toss(x, 10)
 
 
   expect_equal(sum(y),3)
-  mean(y, 0.3)
+
+  expect_equal(mean(y), 0.3)
 
 })
