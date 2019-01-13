@@ -4,8 +4,8 @@
 \alias{toss.default}
 \title{Coin Toss}
 \usage{
-\method{toss}{default}(n = 1, prob = 0.5, success = "H", failure = "T",
-  ...)
+\method{toss}{default}(n = 1, prob = 0.5, success = "H",
+  failure = "T", ...)
 }
 \arguments{
 \item{n}{The number of times the coin is tossed}

@@ -3,7 +3,6 @@
 \name{\%>\%}
 \alias{\%>\%}
 \alias{foo}
-\alias{\%>\%}
 \title{Convert \code{data.frame} to \code{list}.}
 \usage{
 foo(x)
@@ -14,8 +13,6 @@ lhs \%>\% rhs
 \item{x}{A \code{data.frame} object.}
 }
 \description{
-Convert \code{data.frame} to \code{list}.
-
 See \code{magrittr::\link[magrittr]{\%>\%}} for details.
 }
 \examples{
