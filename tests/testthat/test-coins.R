@@ -11,6 +11,9 @@ test_that("Testing coins",{
  x <- print(mycoin)
  expect_equal(x,"A Bernoulli trial with success denoted by 'H' failure denoted by 'T', and probability of success 0.5.")
 
+ expect_error(coin(prob = 1.1))
+
+ expect_error(coin(prob = "1.1"))
 
 
 })
@@ -28,6 +31,7 @@ test_that("Testing tossed coins",{
 
   expect_equal(y$success, 'a')
   expect_equal(print(y), c('b', 'a'))
+  expect_null(y$prob)
 
 
 })
@@ -37,5 +41,9 @@ test_that("Testing Autocorrelated Coins",{
  x <- autoCorrCoin()
 
  expect_equal(x$success, "H")
+
+ expect_error(autoCorrCoin(p_given1 = 1.1))
+ expect_error(autoCorrCoin(p_given0 = -1.1))
+ expect_error(autoCorrCoin(initial_prob  = -1.1))
 
 })
