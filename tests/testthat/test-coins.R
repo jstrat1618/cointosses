@@ -4,6 +4,8 @@ context("Testing Coins")
 test_that("Testing coins",{
  mycoin <- coin()
 
+ expect_is(mycoin, "coin")
+
  expect_equal(0.5, mycoin$prob)
  expect_equal("H", mycoin$success)
  expect_equal("T", mycoin$failure)
@@ -20,9 +22,13 @@ test_that("Testing coins",{
 
 
 test_that("Testing tossed coins",{
+
   expect_error(tossed_coin(c('a', 'b', 'c')))
 
   x <- tossed_coin(c('a', 'b'), success = 'a')
+
+  expect_is(x, c("tossedCoin", "coin"))
+
 
   expect_equal(x$failure, 'b')
   expect_null(x$prob)
@@ -39,6 +45,8 @@ test_that("Testing tossed coins",{
 
 test_that("Testing Autocorrelated Coins",{
  x <- autoCorrCoin()
+
+ expect_is(x, "autoCorrCoin")
 
  expect_equal(x$success, "H")
 
